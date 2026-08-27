@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muunna metrisiä pituus-, pinta-ala- ja tilavuusyksiköitä ja harjoittele muunnoksia.">
+  <title>Mittamestari – mittayksikkömuunnin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Mittamestari etusivu">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>Mittamestari</span>
+    </a>
+    <nav aria-label="Päänavigaatio">
+      <a class="active" href="#muunnin">Muunnin</a>
+      <a href="#harjoittele">Harjoittele</a>
+      <a href="#ohje">Ohje</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="muunnin">
+      <div class="eyebrow"><span>✦</span> SELKEÄSTI JA NOPEASTI</div>
+      <h1>Mittayksiköt<br><em>haltuun.</em></h1>
+      <p>Muunna metrisiä mittayksiköitä ja opi samalla, miten muunnokset toimivat.</p>
+    </section>
+
+    <section class="converter-shell" aria-label="Mittayksikkömuunnin">
+      <div class="tabs" role="tablist" aria-label="Suure">
+        <button class="tab active" data-type="length" role="tab" aria-selected="true"><span class="tab-icon">↔</span>Pituus</button>
+        <button class="tab" data-type="area" role="tab" aria-selected="false"><span class="tab-icon">□</span>Pinta-ala</button>
+        <button class="tab" data-type="volume" role="tab" aria-selected="false"><span class="tab-icon">◇</span>Tilavuus</button>
+      </div>
+
+      <div class="converter-card">
+        <div class="input-row">
+          <div class="field-group">
+            <label for="fromValue">Muunnettava arvo</label>
+            <div class="value-control">
+              <input id="fromValue" type="text" inputmode="decimal" value="1" aria-describedby="conversionHint">
+              <select id="fromUnit" aria-label="Muunnettava yksikkö"></select>
+            </div>
+          </div>
+          <button class="swap" id="swapButton" aria-label="Vaihda yksiköt keskenään" title="Vaihda yksiköt">⇄</button>
+          <div class="field-group">
+            <label for="resultValue">Tulos</label>
+            <div class="value-control result-control">
+              <output id="resultValue" for="fromValue">100</output>
+              <select id="toUnit" aria-label="Tuloksen yksikkö"></select>
+            </div>
+          </div>
+        </div>
+        <p class="conversion-hint" id="conversionHint"><span>1 m</span> = <strong>100 cm</strong></p>
+
+        <div class="table-heading">
+          <div>
+            <span class="tiny-label">MUUNNOSTAULUKKO</span>
+            <h2><span id="tableValue">1</span> <span id="tableUnit">metri</span> muissa yksiköissä</h2>
+          </div>
+          <span class="live-badge"><i></i> Päivittyy automaattisesti</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Yksikkö</th><th>Lyhenne</th><th>Arvo</th></tr></thead>
+            <tbody id="conversionTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice" id="harjoittele">
+      <div class="practice-copy">
+        <div class="eyebrow mint"><span>✦</span> HARJOITTELE JA OPI</div>
+        <h2>Testaa taitosi</h2>
+        <p>Saat uuden tehtävän joka kerta. Ratkaise muunnos ilman laskuria ja tarkista vastauksesi.</p>
+        <div class="score"><span>Onnistumiset</span><strong id="score">0 / 0</strong></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-top"><span>TEHTÄVÄ</span><button id="newQuestion">Uusi tehtävä ↻</button></div>
+        <p class="question" id="question">Muunna 3,5 metriä senttimetreiksi.</p>
+        <label for="quizAnswer">Vastauksesi</label>
+        <div class="answer-row"><input id="quizAnswer" type="text" inputmode="decimal" placeholder="Kirjoita vastaus"><span id="answerUnit">cm</span></div>
+        <button class="check-button" id="checkAnswer">Tarkista vastaus <span>→</span></button>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="info" id="ohje">
+      <span class="tiny-label">NÄIN SE TOIMII</span>
+      <h2>Muuntaminen on helppoa</h2>
+      <div class="steps">
+        <article><b>01</b><div><h3>Valitse suure</h3><p>Valitse pituus, pinta-ala tai tilavuus.</p></div></article>
+        <article><b>02</b><div><h3>Syötä arvo</h3><p>Valitse yksiköt ja kirjoita muunnettava luku.</p></div></article>
+        <article><b>03</b><div><h3>Katso tulos</h3><p>Näet tuloksen ja koko muunnostaulukon heti.</p></div></article>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark"><span></span><span></span><span></span></span><span>Mittamestari</span></a><p>Oppimisen iloa, yksi muunnos kerrallaan.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
