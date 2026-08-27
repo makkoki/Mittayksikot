@@ -67,7 +67,10 @@ function newQuestion() {
   const values = [2, 3, 4, 5, 10, 12, 25, .5, 1.5, 3.5];
   const value = values[Math.floor(Math.random() * values.length)];
   quiz = { answer: value * units[from][2] / units[to][2] };
-  document.querySelector('#question').textContent = `Muunna ${formatNumber(value)} ${units[from][0].toLowerCase()}a ${units[to][0].toLowerCase()}iksi.`;
+  const sourceUnit = units[from][0].toLowerCase(), targetUnit = units[to][0].toLowerCase();
+  const sourceName = sourceUnit.endsWith('metri') ? `${sourceUnit}ä` : `${sourceUnit}a`;
+  const targetName = targetUnit.endsWith('i') ? `${targetUnit.slice(0, -1)}iksi` : `${targetUnit.slice(0, -1)}aksi`;
+  document.querySelector('#question').textContent = `Muunna ${formatNumber(value)} ${sourceName} ${targetName}.`;
   document.querySelector('#answerUnit').textContent = units[to][1];
   document.querySelector('#quizAnswer').value = '';
   document.querySelector('#feedback').textContent = '';
